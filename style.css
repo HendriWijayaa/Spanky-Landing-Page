@@ -1,0 +1,246 @@
+:root {
+  --primary: #503621;
+  --secondary: #acb3c1;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "montserrat", sans-serif;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primary);
+  padding: 0.5rem 3rem;
+  height: 7.5rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.navbar-logo img {
+  width: 11rem;
+  height: 11rem;
+}
+.navbar-items {
+  display: flex;
+  gap: 0 3.5rem;
+  font-weight: 700;
+}
+.navbar-items li a {
+  color: var(--primary);
+}
+.navbar-items li a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.2rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.1s;
+}
+.navbar-items li a:hover::after {
+  transform: scaleX(1);
+}
+.navbar-items-link a {
+  font-weight: 700;
+  color: var(--primary);
+  padding: 5px 20px;
+  border-radius: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+.navbar-items-link a:hover {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+input:checked ~ nav .navbar-items-link a:hover {
+  color: #ac8e55;
+}
+
+/* landing page */
+input {
+  display: none;
+}
+.landing-page {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-page-info {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
+  transition: 0.2s;
+  z-index: 3;
+}
+.landing-page-info h1 {
+  font-weight: 800;
+  font-size: 96px;
+  color: var(--primary);
+}
+.landing-page-info p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+.landing-page-info a {
+  font-weight: 700;
+  font-size: 16px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  margin: 1rem;
+  color: var(--secondary);
+  box-shadow: 0 0 0 2px var(--primary);
+  background-color: var(--primary);
+}
+.landing-page-info a:hover {
+  color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+  background-color: var(--secondary);
+}
+input:checked ~ .landing-page .landing-page-info {
+  bottom: -100%;
+  transition: 0.2s;
+}
+
+.landing-page-front {
+  width: 75%;
+  height: 100vh;
+  background: url(assets/spanky.png);
+  background-size: 1312px 940px;
+  background-position: -300px 100px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: absolute;
+  transition: 0.2s;
+  z-index: 2;
+}
+input:checked ~ .landing-page .landing-page-front {
+  background-position: -600px 300px;
+  opacity: 0;
+  transition: 0.1s;
+}
+
+.landing-page-panel {
+  width: 22%;
+  height: 100vh;
+  position: relative;
+  background-color: var(--primary);
+  transition: 0.5s;
+  z-index: 1;
+}
+input:checked ~ .landing-page .landing-page-panel {
+  background-color: #ac8e55;
+  transition: 0.2s;
+  width: 100%;
+  z-index: 0;
+}
+
+.landing-page-back {
+  width: 100%;
+  height: 100vh;
+  content: "";
+  background: url(assets/spanky.png);
+  background-size: 1489px 1067px;
+  filter: grayscale(1);
+  opacity: 60%;
+  background-position: -300px 37px;
+  background-repeat: no-repeat;
+  position: absolute;
+  overflow: hidden;
+  transition: 0.2s;
+  top: 0;
+}
+input:checked ~ .landing-page .landing-page-back {
+  width: 80%;
+  filter: grayscale(0);
+  background-position: -400px 37px;
+  transition: 0.5s;
+  opacity: 100%;
+  z-index: 1;
+}
+
+.landing-page-text {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+.landing-page-text-top p,
+.landing-page-text-bottom p {
+  padding: 8px 15px;
+  margin: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: #ac8e55;
+  background-color: var(--primary);
+  border-radius: 5px;
+}
+.landing-page-text-top {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 26rem;
+  top: -100%;
+  transition: 0.2s;
+}
+input:checked ~ section .landing-page-text .landing-page-text-top {
+  left: 26rem;
+  top: 8rem;
+  transition: 0.2s;
+  z-index: 1;
+}
+.landing-page-text-bottom {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: -100%;
+  left: 50rem;
+  transition: 0.2s;
+}
+input:checked ~ section .landing-page-text .landing-page-text-bottom {
+  bottom: 5rem;
+  left: 50rem;
+  transition: 0.2s;
+  z-index: 1;
+}
+.landing-page-text-side {
+  position: absolute;
+  top: 17rem;
+  right: -100%;
+  transition: 0.2s;
+  transform: rotate(-90deg);
+}
+input:checked ~ section .landing-page-text .landing-page-text-side {
+  top: 17rem;
+  right: -6rem;
+  transition: 0.2s;
+  z-index: 1;
+}
+.landing-page-text-side p {
+  font-weight: 800;
+  font-size: 128px;
+  height: 100px;
+}
+.landing-page-text-side p:nth-child(1) {
+  color: var(--primary);
+}
+.landing-page-text-side p:nth-child(2) {
+  color: #ac8e55;
+  text-shadow: -1px -1px 0 var(--primary), 1px -1px 0 var(--primary),
+    -1px 1px 0 var(--primary), 1px 1px 0 var(--primary);
+}
